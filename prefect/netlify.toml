@@ -1,0 +1,16 @@
+# Netlify settings
+#
+# Other Netlify files:
+# - runtime.txt: version of Python to build with
+#
+# “command” is your build command,
+#
+
+[build]
+base = ""
+command = """
+pip install --upgrade --upgrade-strategy eager  -e ".[dev]" \
+&& prefect dev build-docs  \
+&& mkdocs build
+"""
+publish = "site"
